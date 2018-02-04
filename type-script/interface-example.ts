@@ -57,7 +57,8 @@ interface SquareConfig {
     width?: number;
 }
 
-function createSquare(config: SquareConfig) : { color: string; area: number } {
+//       name         variable : typeObject    : rerult type of the function ---> (always return a object with attribute like that)
+function createSquare(config   : SquareConfig) : { color: string; area: number } {
     let newSquare = {color: "white", area: 100};
     if (config.color) {
         newSquare.color = config.color;
@@ -107,6 +108,203 @@ let numberDictionaryExp : NumberDictionary = {
 
 // -----> nhu vay, trong truong hop nay, ta su dung Interface nhu 1 loai khai bao kieu du lieu vay.
 
+// Su dung readonly de khai bao mot interface, trong do quy dinh mot kieu du lieu khong the thay the duoc
 
-/* -------------------------- II. SU DUNG INTERFACE DE KHAI BAO CAC REQUIRE FUNCTION CHO CLASS-------------------------*/
+// Trong mot vai truong hop, chung ta muon truyen vao 1 object, nhung khong cho phep thay doi bat cu gia tri nao cua object
+// do, thi can su dung thuoc tinh readOnly de khai bao. Vi du:
 
+interface PersonInfo{
+    name : string,
+    readonly age : number
+}
+
+let moiMoiDoHoi : PersonInfo = {
+    name : "Moi Moi",
+    age : 20
+};
+
+// moiMoiDoHoi.age = 100; <--- bao loi vi age dc khai bao la readonly nen ko the thay doi dc
+moiMoiDoHoi.name = "Moi Moi de thuong";
+
+console.log(moiMoiDoHoi.name + " and " + moiMoiDoHoi.age + " years old.");
+
+
+
+/* -------------------------- II. SU DUNG INTERFACE CHO CLASS -----------------------------------------*/
+// Gia su trong truong hop nay ta khai bao mot interface Clock, voi duy nhat mot properties la currentTime voi object type la Date.now()
+// Neu trong class Clock ma khong implement kieu du lieu nay thi no se bao loi.
+
+// Vi du 1
+interface ClockInterface {
+    currentTime: Date;
+}
+
+class Clock implements ClockInterface {
+    currentTime: Date; // <-- have error when un-declare the properties.
+    hour : number;
+    minute : number;
+
+    constructor(h: number, m: number) {
+        this.hour = h;
+        this.minute = m;
+    }
+}
+
+let currentTime = new Clock(20, 41);
+console.log(currentTime);
+
+
+// Vi du 2:
+// Khai bao mot interface la animation Action voi 3 phuong thuc la eat, talk va run
+interface AnimalAction {
+    eat (): void,
+
+    talk (): string,
+
+    run (): void,
+
+    giveBirth () : any
+}
+
+// Tao 1 class dog implement interface tren, khi do, bat cu class nao ma ko implement du cac function tren va khai bao kieu du
+// lieu tra ve phu hop thi deu bao loi
+class Animal {
+    name: string;
+    birthday: { day: number, month: number, year: number };
+}
+
+class Dog implements AnimalAction {
+    name: string;
+
+    constructor(_name: string) {
+        this.name = _name;
+    }
+
+    eat = function () {
+        console.log(this.name + " an xuong");
+    };
+
+    talk = function () {
+        return " keu Gau Gau";
+    };
+
+    run = function () {
+        console.log(this.name + " chay bang 4 chan");
+    };
+
+    giveBirth = function () {
+        return new Dog("son of " + this.name);
+    }
+}
+
+class Cat implements AnimalAction {
+    eat = function () {
+        console.log(this.name + " an chuot");
+    };
+    talk = function () {
+        return "keu meo meo";
+    };
+
+    run = function () {
+        console.log(this.name + " chay rat nhanh");
+    };
+    giveBirth = function () {
+        return new Cat()
+    }
+}
+
+let moiMoi = new Dog("Moi Moi");
+moiMoi.run();
+moiMoi.eat();
+console.log(moiMoi.name + " " + moiMoi.talk());
+
+let child = moiMoi.giveBirth();
+console.log(child);
+
+/* -------------------------- III. INTERFACE EXTEND INTERFACE -----------------------------------------*/
+// Khai bao 1 interface cho Bird
+interface BirdAnimation extends  AnimalAction{
+    fly (): void,
+}
+// tao 1 class Bird implement interface do
+
+class Bird implements BirdAnimation{
+    name: string;
+
+    constructor(_name: string) {
+
+        this.name = _name;
+    }
+    eat = function (){
+
+    };
+    talk = function (){
+        return "chip chip";
+    };
+
+    run = function () {
+        console.log("The bird not run. ");
+    };
+
+    giveBirth = function () {
+
+    };
+
+    fly = function (){
+        console.log("The bird is flying!!");
+    };
+
+
+}
+
+let khanhTran = new Bird("Phonix");
+khanhTran.run();
+khanhTran.eat();
+khanhTran.fly();
+
+
+/* -------------------------- III. INTERFACE EXTEND CLASS -----------------------------------------*/
+
+// Khai bao 1 class control
+class Control {
+    private state: any;
+}
+
+// khai bao 1 interface implement class tren
+interface SelectableControl extends Control {
+    select(): void;
+}
+
+// khai bao 1 class extend tu class tren va implement cai interface kia
+class Button extends Control implements SelectableControl {
+    select() { }
+}
+
+// khai bao 1 class extend tu class tren ma ko can implement interface do
+class TextBox extends Control {
+    select() { }
+}
+
+// khai bao 1 class implement interface tren. Trong truong hop class ko co properties la state, no se bao loi
+// Vi cai interface extend tu cai class Control, nen cai class implement no cung can phai extend tu class Control
+
+// Error: Property 'state' is missing in type 'Image'.
+// class Image implements SelectableControl {
+//     select() { }
+// }
+//
+//
+// class LocationExtendIncorrectly implements SelectableControl {
+//     private state = "abcdef";
+//
+//     select = function() {
+//
+//     }
+// }
+
+class LocationExtendCorrectly extends  Control implements SelectableControl {
+
+    select = function() {
+
+    }
+}
