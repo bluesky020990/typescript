@@ -151,7 +151,22 @@ todayTask.reportTask();
 console.log("Vesion is " + "ABCDEF");
 
 
+/* -------------------------------  USING CLASS AS INTERFACE ------------------------------------*/
 
-$(document).ready(function(){
-    $('.container').html("Change content of element by jquery!!!");
-});
+class CoordinatePoint {
+    x : number;
+    y:  number;
+}
+
+interface  Point3D extends CoordinatePoint{
+    z : number;
+}
+
+let point3D : Point3D = {
+    x : 10,
+    y: 10,
+    z : 10
+}
+
+
+$('.container').html("Change content of element !!!!!");

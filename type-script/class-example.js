@@ -114,6 +114,15 @@ todayTask.morningTask();
 todayTask.afterNoonTask();
 todayTask.reportTask();
 console.log("Vesion is " + "ABCDEF");
-$(document).ready(function () {
-    $('.container').html("Change content of element by jquery!!!");
-});
+/* -------------------------------  USING CLASS AS INTERFACE ------------------------------------*/
+var CoordinatePoint = (function () {
+    function CoordinatePoint() {
+    }
+    return CoordinatePoint;
+}());
+var point3D = {
+    x: 10,
+    y: 10,
+    z: 10
+};
+$('.container').html("Change content of element !!!!!");
