@@ -114,3 +114,6 @@ todayTask.morningTask();
 todayTask.afterNoonTask();
 todayTask.reportTask();
 console.log("Vesion is " + "ABCDEF");
+$(document).ready(function () {
+    $('.container').html("Change content of element by jquery!!!");
+});

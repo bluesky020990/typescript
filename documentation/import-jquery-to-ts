@@ -1,0 +1,10 @@
+To add jquery to ts project, please do with step:
+
+1. Using node js, install jquery by command 
+
+npm install jquery
+
+2. Add the min file (<script type="text/javascript" src="./node_modules/jquery/dist/jquery.min.js"></script>) into your html.
+
+
+3. Using as default
