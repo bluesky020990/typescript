@@ -1,8 +1,8 @@
 De compile nhieu file ts vao 1, trong tsconfig.json ta khai bao
 
 
-`{
-  "compileOnSave": true,
+{/
+  "compileOnSave": true,/
   "compilerOptions": {
     "module":"system",
     "target": "es5",
@@ -16,7 +16,25 @@ De compile nhieu file ts vao 1, trong tsconfig.json ta khai bao
     "./type-script/type-Inference-and-type-compatibility-example.ts"
   ]
 }
-`
+
 
 Trong do outFile la chi file nao se duoc generate ra, 
 files la danh sach cac file kem theo
+
+
+Duoi day la 1 cau truc thu muc cua 1 project node.js
+
+project/
+   - src/ 
+        - index.ts
+        ... all my ts files
+   - dist /
+       - vendor.js        # angular, jquery...
+       - app-build.js     # our build project
+       - system.js        # Module loader we used
+       - index.html       # call all js
+   - typings/
+       - browser.d.ts
+       - main.d.ts     # for node.js server side, not included
+   - package.json
+   - tsconfig.json

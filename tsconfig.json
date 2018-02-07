@@ -19,9 +19,10 @@
     "outFile": "./dist/main.js"
   },
   "files":[
-    "./type-script/class-example.ts",
-    "./type-script/function-example.ts",
-    "./type-script/interface-example.ts",
-    "./type-script/type-Inference-and-type-compatibility-example.ts"
+    "./type-script/rest-parameter-example.ts"
+//    "./type-script/class-example.ts",
+//    "./type-script/function-example.ts",
+//    "./type-script/interface-example.ts",
+//    "./type-script/type-Inference-and-type-compatibility-example.ts"
   ]
 }
