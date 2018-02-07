@@ -1,16 +1,7 @@
-//{
-//  "compilerOptions": {
-//    "allowJs": true,
-//    "module": "commonjs",
-//    "noImplicitAny": true,
-//    "target": "es5"
-//  },
-//  "exclude": [
-//    "node_modules"
-//  ]
-//}
+De compile nhieu file ts vao 1, trong tsconfig.json ta khai bao
 
-{
+
+`{
   "compileOnSave": true,
   "compilerOptions": {
     "module":"system",
@@ -25,3 +16,7 @@
     "./type-script/type-Inference-and-type-compatibility-example.ts"
   ]
 }
+`
+
+Trong do outFile la chi file nao se duoc generate ra, 
+files la danh sach cac file kem theo
