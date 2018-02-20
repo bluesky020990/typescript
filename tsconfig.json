@@ -19,7 +19,7 @@
     "outFile": "./dist/main.js"
   },
   "files":[
-    "./type-script/rest-parameter-example.ts"
+      "./type-script/sub-module/import-module-template.ts"
 //    "./type-script/class-example.ts",
 //    "./type-script/function-example.ts",
 //    "./type-script/interface-example.ts",

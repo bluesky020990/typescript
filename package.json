@@ -23,6 +23,9 @@
   },
   "dependencies": {
     "@types/jquery": "^3.3.0",
-    "jquery": "^3.3.1"
+    "es6-module-loader": "^0.17.11",
+    "jquery": "^3.3.1",
+    "systemjs": "^0.21.0",
+    "traceur": "0.0.111"
   }
 }
