@@ -30,3 +30,5 @@ module NumberUtils {
 * */
 
 export let numberUtilsModule = "NumberUtils";
+
+// luu y can add <script src="https://jspm.io/system@0.16.js"></script> vao html page de su dung.

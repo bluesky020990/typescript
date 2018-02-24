@@ -1,56 +1,75 @@
-/*
-* De khai bao mot module, dau tien ta khoi tao module do nhu sau :
-* su dung tu khoa module
-* */
-System.register("export-module-template", [], function (exports_1, context_1) {
+var FunctionExample;
+(function (FunctionExample) {
+    // version 1.0
+    function getSumOfTwoOrMoreNumber(number1, number2) {
+        var numberArray = [];
+        for (var _i = 2; _i < arguments.length; _i++) {
+            numberArray[_i - 2] = arguments[_i];
+        }
+        var total = 0;
+        total += number1;
+        total += number2;
+        for (var _a = 0, numberArray_1 = numberArray; _a < numberArray_1.length; _a++) {
+            var _number = numberArray_1[_a];
+            total += _number;
+        }
+        return total;
+    }
+    var GetSumOfListNumber = function (number1, number2) {
+        var numberArray = [];
+        for (var _i = 2; _i < arguments.length; _i++) {
+            numberArray[_i - 2] = arguments[_i];
+        }
+        var total = 0;
+        total += number1;
+        total += number2;
+        for (var _a = 0, numberArray_2 = numberArray; _a < numberArray_2.length; _a++) {
+            var _number = numberArray_2[_a];
+            total += _number;
+        }
+        return total;
+    };
+    var GenerateUserInformation = (function () {
+        function GenerateUserInformation(_firstName, _lastName, _userName, _password, _address) {
+            var _this = this;
+            this.displayUserInformation = function () {
+                return _this.firstName + " " + _this.lastName;
+            };
+            this.showUserAccount = function () {
+                return "Username: " + _this.userName + "\n            Password: " + _this.password;
+            };
+            this.showAddress = function () {
+                return _this.address;
+            };
+            this.firstName = _firstName;
+            this.lastName = _lastName;
+            this.userName = _userName;
+            this.password = _password;
+            this.address = _address;
+        }
+        return GenerateUserInformation;
+    }());
+    FunctionExample.GenerateUserInformation = GenerateUserInformation;
+    ;
+})(FunctionExample || (FunctionExample = {}));
+var functionExample = "FunctionExample";
+System.register("main", ["./practice/function"], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var NumberUtils, numberUtilsModule;
-    return {
-        setters: [],
-        execute: function () {/*
-            * De khai bao mot module, dau tien ta khoi tao module do nhu sau :
-            * su dung tu khoa module
-            * */
-            (function (NumberUtils) {
-                // sau do export class tu trong module do ra
-                var Number = (function () {
-                    function Number() {
-                        this.plus = function (number1, number2) {
-                            return number1 + number2;
-                        };
-                        this.minus = function (number1, number2) {
-                            return number1 - number2;
-                        };
-                    }
-                    return Number;
-                }());
-                NumberUtils.Number = Number;
-            })(NumberUtils || (NumberUtils = {}));
-            // va co the su dung no mot cach de dang. Luc nay, class Number dc compiler thanh 1 function
-            // ben trong module tren nen se ko bi trung lap
-            // var numberUtils = new NumberUtils.Number();
-            // console.log(numberUtils.plus(10, 20));
-            /* EXPORT VA IMPORT MODULE */
-            /*
-            * De export product ta su dung cu phap
-            * */
-            exports_1("numberUtilsModule", numberUtilsModule = "NumberUtils");
-        }
-    };
-});
-System.register("import-module-template", ["export-module-template"], function (exports_2, context_2) {
-    "use strict";
-    var __moduleName = context_2 && context_2.id;
-    var export_module_template_1;
+    var function_1;
     return {
         setters: [
-            function (export_module_template_1_1) {
-                export_module_template_1 = export_module_template_1_1;
+            function (function_1_1) {
+                function_1 = function_1_1;
             }
         ],
         execute: function () {
-            console.log(export_module_template_1.numberUtilsModule);
+            console.log(function_1.functionExample);
+            // let user1Information = new functionExample.GenerateUserInformation("Khanh", "Tran", "Khanh_Tran", "123456", "Le Thuy Quang Binh");
+            //
+            // console.log(user1Information.displayUserInformation());
+            // console.log(user1Information.showUserAccount());
+            // console.log(user1Information.showAddress()); 
         }
     };
 });
