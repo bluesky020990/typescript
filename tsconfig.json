@@ -13,16 +13,21 @@
 {
   "compileOnSave": true,
   "compilerOptions": {
-    "module":"system",
+    "allowJs": true,
+    "module": "system", // commonjs | system
     "target": "es5",
+    "noImplicitAny": false,
     "sourceMap": true,
     "outFile": "./dist/main.js"
   },
-  "files":[
-      "./type-script/main.ts"
-//    "./type-script/class-example.ts",
-//    "./type-script/function-example.ts",
-//    "./type-script/interface-example.ts",
-//    "./type-script/type-Inference-and-type-compatibility-example.ts"
+  "files": [
+    "./type-script/practice/array.ts"
+//    "./type-script/sub-module/export_module.ts",
+//    "./type-script/sub-module/import_module.ts"
+
+    //    "./type-script/class-example.ts",
+    //    "./type-script/function-example.ts"
+    //    "./type-script/interface-example.ts",
+    //    "./type-script/type-Inference-and-type-compatibility-example.ts"
   ]
 }
